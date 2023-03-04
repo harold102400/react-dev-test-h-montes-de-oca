@@ -1,24 +1,61 @@
-import logo from './logo.svg';
-import './App.css';
+import React, { useEffect } from "react";
+import {
+  Routes,
+  Route,
+  Navigate,
+  useLocation,
+  useNavigate,
+} from "react-router-dom";
+import AddUser from "./pages/AddUser";
+import Login from "./pages/Login";
+import Users from "./pages/Users";
+import Navbar from "./components/Navbar";
+import Dashboard from "./pages/Dashboard";
+import { useSelector } from "react-redux";
 
 function App() {
+  const { logged } = useSelector((state) => state.auth);
+  const { pathname } = useLocation();
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (logged && pathname === "/login") {
+      navigate('/dashboard')
+    }
+    if(!logged && pathname !== '/login') {
+      navigate('/login')
+    }
+  }, [logged, pathname, navigate]);
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <Routes>
+      <Route path="/" exact element={<Navigate to="/dashboard" />} />
+      <Route
+        path="/dashboard"
+        element={
+          <Navbar>
+            <Dashboard />
+          </Navbar>
+        }
+      />
+      <Route
+        path="/adduser"
+        element={
+          <Navbar>
+            <AddUser />
+          </Navbar>
+        }
+      />
+      <Route
+        path="/users"
+        element={
+          <Navbar>
+            <Users />
+          </Navbar>
+        }
+      />
+      <Route path="/login" element={<Login />} />
+    </Routes>
   );
 }
 

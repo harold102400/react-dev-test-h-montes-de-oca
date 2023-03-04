@@ -1,0 +1,22 @@
+/* .btn-none:hover,
+.btn-none:active,
+.btn-none {
+  background-color: transparent !important;
+  border: none !important;
+}
+
+.user-img {
+  height: 40px;
+}
+.dropdown-toggle1 {
+  white-space: nowrap;
+}
+.dropdown-toggle1::after {
+  display: none !important;
+}
+ */
+/* .dropdown-item {
+  border: none !important;
+  border-radius: 3px !important;
+  box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important; 
+} */
