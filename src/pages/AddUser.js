@@ -346,7 +346,7 @@ const AddUser = () => {
           </div>
         </div>
 
-        <button className="btn btn-success btn-sm mt-2">Agregar Usuario</button>
+        <button className="btn btn-success mt-2">Agregar Usuario</button>
       </form>
     </div>
     
