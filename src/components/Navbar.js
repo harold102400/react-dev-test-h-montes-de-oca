@@ -5,7 +5,8 @@ import { Link } from "react-router-dom";
 import { IconContext } from "react-icons";
 import { SidebarData } from "./SidebarData";
 import DropdownMenu from "./DropdownMenu";
-import '../styles/Navbar.css';
+import "../styles/Navbar.css";
+import "../styles/Dropdown.css";
 
 function Navbar({ children }) {
   const [sidebar, setSidebar] = useState(false);
@@ -40,9 +41,7 @@ function Navbar({ children }) {
             })}
           </ul>
         </nav>
-        <main className="content">
-          {children}
-        </main>
+        <main className="content">{children}</main>
       </IconContext.Provider>
     </>
   );

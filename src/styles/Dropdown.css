@@ -1,4 +1,4 @@
-/* .btn-none:hover,
+.btn-none:hover,
 .btn-none:active,
 .btn-none {
   background-color: transparent !important;
@@ -14,9 +14,33 @@
 .dropdown-toggle1::after {
   display: none !important;
 }
- */
-/* .dropdown-item {
+.dropdown-logout-menu {
   border: none !important;
-  border-radius: 3px !important;
   box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px !important; 
-} */
+  padding: 0 !important;
+  margin: 0 !important;
+}
+.dropdown-item {
+  border: none !important;
+  border-radius: 6px !important;
+  background-color: none !important;
+  padding: 8px !important;
+  margin: 0 !important ;
+  background-color: white !important;
+  display: flex !important;
+  justify-content: center !important;
+}
+
+.dropdown-item:hover {
+  background-color: #000 !important;
+  color: white !important;
+}
+
+.dropdown-btn {
+  padding: 2px;
+  font-size: 0.6rem;
+  border-radius: 3px;
+  border: none;
+  box-shadow: rgba(6, 24, 44, 0.4) 0px 0px 0px 2px, rgba(6, 24, 44, 0.65) 0px 4px 6px -1px, rgba(255, 255, 255, 0.08) 0px 1px 0px inset;
+  
+}

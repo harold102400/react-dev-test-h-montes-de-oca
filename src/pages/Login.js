@@ -1,9 +1,10 @@
 import React from "react";
 import { useForm } from "react-hook-form";
 import { userValidation } from "../validations/UserValidation";
-import "../styles/LoginForm.css";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/auth.actions";
+import * as FaIcons from "react-icons/fa";
+import "../styles/LoginForm.css";
 
 const Login = () => {
 
@@ -22,9 +23,9 @@ const Login = () => {
   };
 
   return (
-    <div className="wrapper  d-flex align-items-center justify-content-center w-100">
-      <form onSubmit={handleSubmit(onSubmit)} className="login">
-        <h1 className="mb-3">Admin page</h1>
+    <div className="login-container">
+      <form onSubmit={handleSubmit(onSubmit)} className="user-form-data">
+        <h1 className="mb-3">Admin page <FaIcons.FaDoorOpen /></h1>
         <div className="form-group mb-2">
           <label className="form-label">Username</label>
           <input
@@ -39,9 +40,7 @@ const Login = () => {
         </div>
 
         <div>
-          {errors.username?.type === "required" && (
-            <span className="alert alert-danger">El campo es requerido</span>
-          )}
+          {errors.username?.type === "required" && (<span className="alert alert-danger">El campo es requerido</span>)}
           {errors.username?.type === "minLength" && (
             <span className="alert alert-danger">
               El minimo de letras son 2

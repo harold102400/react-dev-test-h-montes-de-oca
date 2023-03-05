@@ -1,7 +1,7 @@
 import { types } from "../types";
 
-export const addUser = ({ name, primerApellido, segundoApellido, id, edad, genero, direccion, telefono, correo, estadoCivil, hijos, nacimiento }) => ({
+export const addUser = ({ name, firstLastname, secondLastname, id, age, gender, address, phone, email, estadoCivil, children, birthday }) => ({
     type: types.addUser,
-    payload: { name, primerApellido, segundoApellido, id, edad, genero, direccion, telefono, correo, estadoCivil, hijos, nacimiento },
+    payload: { name, firstLastname, secondLastname, id, age, gender, address, phone, email, estadoCivil, children, birthday },
   });
   
