@@ -7,25 +7,30 @@ import * as FaIcons from "react-icons/fa";
 import "../styles/LoginForm.css";
 
 const Login = () => {
-
-  const dispatch = useDispatch()
-
+  const dispatch = useDispatch();
+  const isValidInput = (value) => {
+    return /^\s*$/.test(value) === false;
+  };
   const {
     register,
     handleSubmit,
     formState: { errors },
-  } = useForm();
+  } = useForm({
+    criteriaMode: "all",
+  });
   const onSubmit = async (data) => {
     const isValid = await userValidation.isValid(data);
-    if(!isValid) return
+    if (!isValid) return;
 
-    dispatch(login({ username: data.username }))
+    dispatch(login({ username: data.username }));
   };
 
   return (
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)} className="user-form-data">
-        <h1 className="mb-3">Admin page <FaIcons.FaDoorOpen /></h1>
+        <h1 className="mb-3">
+          Admin page <FaIcons.FaDoorOpen />
+        </h1>
         <div className="form-group mb-2">
           <label className="form-label">Username</label>
           <input
@@ -35,14 +40,24 @@ const Login = () => {
             {...register("username", {
               required: true,
               minLength: 2,
+              validate: {
+                isNotEmpty: (value) => isValidInput(value),
+              },
             })}
           />
         </div>
 
         <div>
-          {errors.username?.type === "required" && (<span className="alert alert-danger">El campo es requerido</span>)}
+          {errors.username?.type === "required" && (
+            <span className="error-alert">El campo es requerido</span>
+          )}
+          {errors.username?.type === "isNotEmpty" && (
+            <span className="error-alert">
+              Este campo no puede estar vacío o contener solo espacios en blanco
+            </span>
+          )}
           {errors.username?.type === "minLength" && (
-            <span className="alert alert-danger">
+            <span className="error-alert">
               El minimo de letras son 2
             </span>
           )}
@@ -56,21 +71,31 @@ const Login = () => {
             name="password"
             {...register("password", {
               required: true,
-              pattern: "[a-zA-Z0-9]*",
+              pattern: /[a-zA-Z0-9]*/,
+              minLength: 8,
+              validate: {
+                isNotEmpty: (value) => isValidInput(value),
+              },
             })}
           />
         </div>
 
         <div>
           {errors.password?.type === "required" && (
-            <span>El campo es requerido</span>
+            <span className="error-alert">El campo es requerido</span>
+          )}
+          {errors.password?.type === "isNotEmpty" && (
+            <span className="error-alert">
+              Este campo no puede estar vacío o contener solo espacios en blanco
+            </span>
           )}
           {errors.password?.type === "minLength" && (
-            <span>El minimo de letras son 2</span>
+            <span className="error-alert">El mínimo de letras son 8</span>
           )}
         </div>
 
         <button className="btn btn-success w-100 mt-2">Log in</button>
+
       </form>
     </div>
   );
