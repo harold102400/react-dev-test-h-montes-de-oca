@@ -6,11 +6,12 @@
   }
 
   .navbar {
-    background-color: #E4EFFF;
+    background-color: #e5ecf2;
     height: 80px;
     display: flex;
     justify-content: space-between;
     align-content: center;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
    
   }
   
@@ -23,6 +24,7 @@
   
   .nav-menu {
     background-color: #E4EFFF;
+    box-shadow: rgba(0, 0, 0, 0.19) 0px 10px 20px, rgba(0, 0, 0, 0.23) 0px 6px 6px;
     width: 250px;
     height: 100vh;
     display: flex;
