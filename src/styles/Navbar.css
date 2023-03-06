@@ -17,9 +17,8 @@
     color: #fff;
   } */
   
-  /* Navbar CSS */
   .navbar {
-    background-color: #f8d0d0;
+    background-color: #439441;
     height: 80px;
     display: flex;
     justify-content: space-between;
@@ -74,7 +73,7 @@
   }
   
   .nav-text a:hover {
-    background-color: #000000;
+    background-color: #439441;
     color: #fff;
   }
   
@@ -102,5 +101,5 @@
     
     height: fit-content;
     min-height: 100vh;
-    background-color: #1A1E21;
+    background-color: #e5ecf2;
   }

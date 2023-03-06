@@ -276,7 +276,7 @@ const AddUser = () => {
               ))}
               <button
                 type="button"
-                className="btn btn-primary"
+                className="btn btn-success"
                 onClick={() => setAddresses([...addresses, ""])}
               >
                 Agregar dirección

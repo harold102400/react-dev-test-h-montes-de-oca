@@ -39,7 +39,7 @@ const Users = () => {
           <ul className="pagination">
             <li className="page-item">
               <Link
-                className="page-link"
+                className="page-link p-2 mb-2 bg-success text-light"
                 to={`/users?page=${isFirtPage ? 0 : page - 1}`}
               >
                 Previa
@@ -47,7 +47,7 @@ const Users = () => {
             </li>
             <li className="page-item">
               <Link
-                className="page-link"
+                className="page-link p-2 mb-2 bg-success text-light"
                 to={`/users?page=${isLastPage ? page : page + 1}`}
               >
                 Siguiente

@@ -1,6 +1,7 @@
-import React, {useState} from "react";
-import { Dropdown } from "react-bootstrap";
+import React, {useState, useEffect, useRef} from "react";
+//import { Dropdown } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
+import {AiOutlineLogin } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux";
 import { logout } from "../redux/actions/auth.actions";
 import "../styles/Dropdown.css";
@@ -9,32 +10,47 @@ const DropdownMenu = () => {
   const { username } = useSelector((state) => state.auth);
   const dispatch = useDispatch();
   const [open, setOpen] = useState(false);
-  const handleClick = () => {
-    dispatch(logout());
-  };
+ const handleClick = () => {
+   dispatch(logout());
+ };
+ const menuRef = useRef();
 
+ useEffect(() => {
+   const handler = (e) => {
+     if (!menuRef.current.contains(e.target)) {
+       setOpen(false);
+       console.log(menuRef.current);
+     }
+   };
+
+   document.addEventListener("mousedown", handler);
+
+   return () => {
+     document.removeEventListener("mousedown", handler);
+   };
+ }); 
   return (
     
-    <div className="menu-container">
+    <div className="menu-container" ref={menuRef}>
         <div
           className="menu-trigger"
           onClick={() => {
             setOpen(!open);
           }}
         >
-          <FaIcons.FaUserAlt className="user-img" />
+          <FaIcons.FaUser className="user-img" />
         </div>
 
-        <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
+        <div className={`dropdown_menu ${open ? "active" : "inactive"}`}>
           <h3>
-            The Kiet
+            Bienvenido
             <br />
-            <span>Website Designer</span>
+            <span>{username}</span>
           </h3>
           <ul>
-            <li className="dropdownItem">
-              <FaIcons.Fa500Px className="img" />
-              <a className="a">Cerrar sesion</a>
+            <li className="dropdown-item">
+              <AiOutlineLogin className="img" />
+              <a className="a" onClick={handleClick}>Cerrar sesion</a>
             </li>
           </ul>
         </div>

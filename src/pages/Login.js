@@ -29,10 +29,10 @@ const Login = () => {
     <div className="login-container">
       <form onSubmit={handleSubmit(onSubmit)} className="user-form-data">
         <h1 className="mb-3">
-          Admin page <FaIcons.FaDoorOpen />
+          Bienvenido! <FaIcons.FaDoorOpen />
         </h1>
         <div className="form-group mb-2">
-          <label className="form-label">Username</label>
+          <label className="form-label">Usuario</label>
           <input
             className="form-control"
             type="text"
@@ -64,7 +64,7 @@ const Login = () => {
         </div>
 
         <div className="form-group mb-2">
-          <label className="form-label">Password</label>
+          <label className="form-label">Contraseña</label>
           <input
             className="form-control"
             type="password"
@@ -94,7 +94,7 @@ const Login = () => {
           )}
         </div>
 
-        <button className="btn btn-success w-100 mt-2">Log in</button>
+        <button className="btn btn-success w-100 mt-2">Inicia sesión</button>
 
       </form>
     </div>
