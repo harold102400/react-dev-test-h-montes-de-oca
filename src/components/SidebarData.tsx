@@ -1,18 +1,19 @@
 import React from "react";
-import * as FaIcons from "react-icons/fa";
+import { FaUserPlus, FaUsers } from 'react-icons/fa';
+
 
 
 export const SidebarData = [
   {
     title: "Agregar nuevo usuario",
     path: "/adduser",
-    icon: <FaIcons.FaUserPlus />,
+    icon: <FaUserPlus />,
     cName: "nav-text",
   },
   {
     title: "Users",
     path: "/users",
-    icon: <FaIcons.FaUsers />,
+    icon: <FaUsers />,
     cName: "nav-text",
   },
   
