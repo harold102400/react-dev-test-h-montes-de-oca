@@ -1,7 +1,7 @@
 import React, {useState} from "react";
 import { useForm } from "react-hook-form";
-import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
 import { addUser } from "../redux/actions/user.actions";
 import "../styles/AddUser.css";
 
@@ -28,7 +28,7 @@ const AddUser = () => {
         address: data.address,
         phone: data.phone,
         email: data.email,
-        maritalStatus: data.maritalStatus,
+        estadoCivil: data.estadoCivil,
         children: data.children,
         birthday: data.birthday,
       })
@@ -350,12 +350,12 @@ const AddUser = () => {
             <div className="col-md-6 mb-4">
               <div className="form-outline">
                 <label className="form-label mt-6">Estado civil</label>
-                <select className="form-select" {...register("maritalStatus", { required: true })}>
+                <select className="form-select" {...register("estadoCivil", { required: true })}>
                   <option value="">Seleccione su estado civil</option>
                   <option value="casado">Casado/a</option>
                   <option value="soltero">Soltero/a</option>
                 </select>
-                {errors.maritalStatus && (
+                {errors.estadoCivil && (
                   <span className="error-alert">El campo es requerido</span>
                 )}
               </div>

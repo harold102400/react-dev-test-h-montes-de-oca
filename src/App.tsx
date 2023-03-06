@@ -1,36 +1,38 @@
-import React, { useEffect } from "react";
+import React, { useEffect } from 'react';
 import {
   Routes,
   Route,
   Navigate,
   useLocation,
   useNavigate,
-} from "react-router-dom";
-import AddUser from "./pages/AddUser";
-import Login from "./pages/Login";
-import Users from "./pages/Users";
-import Navbar from "./components/Navbar";
-import Dashboard from "./pages/Dashboard";
-import { useSelector } from "react-redux";
-import "./styles/index.css";
+} from 'react-router-dom';
+import AddUser from './pages/AddUser';
+import Login from './pages/Login';
+import Users from './pages/Users';
+import Navbar from './components/Navbar';
+import Dashboard from './pages/Dashboard';
+import { useSelector } from 'react-redux';
+import './styles/index.css';
+import { AuthState } from './interfaces/AuthState';
+import { RootState } from './redux/store';
 
 function App() {
-  const { logged } = useSelector((state) => state.auth);
+  const { logged } = useSelector((state: RootState) => state.auth);
   const { pathname } = useLocation();
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (logged && pathname === "/login") {
-      navigate('/dashboard')
+    if (logged && pathname === '/login') {
+      navigate('/dashboard');
     }
-    if(!logged && pathname !== '/login') {
-      navigate('/login')
+    if (!logged && pathname !== '/login') {
+      navigate('/login');
     }
   }, [logged, pathname, navigate]);
 
   return (
     <Routes>
-      <Route path="/" exact element={<Navigate to="/dashboard" />} />
+      <Route path="/" element={<Navigate to="/dashboard" />} />
       <Route
         path="/dashboard"
         element={
