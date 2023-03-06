@@ -1,5 +1,4 @@
 import React, {useState, useEffect, useRef} from "react";
-//import { Dropdown } from "react-bootstrap";
 import * as FaIcons from "react-icons/fa";
 import {AiOutlineLogin } from "react-icons/ai"
 import { useDispatch, useSelector } from "react-redux";

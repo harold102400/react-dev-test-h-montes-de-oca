@@ -1,9 +1,8 @@
 import React, { useState } from "react";
 import { useForm } from "react-hook-form";
-import { userValidation } from "../validations/UserValidation";
+import * as FaIcons from "react-icons/fa";
 import { useDispatch } from "react-redux";
 import { login } from "../redux/actions/auth.actions";
-import * as FaIcons from "react-icons/fa";
 import "../styles/LoginForm.css";
 
 const Login = () => {
