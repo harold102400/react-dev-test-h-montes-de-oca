@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState } from "react";
 import { useForm } from "react-hook-form";
 import { userValidation } from "../validations/UserValidation";
 import { useDispatch } from "react-redux";
@@ -18,9 +18,13 @@ const Login = () => {
   } = useForm({
     criteriaMode: "all",
   });
-  const onSubmit = async (data) => {
-    const isValid = await userValidation.isValid(data);
-    if (!isValid) return;
+  const [loginError, setLoginError] = useState(false);
+
+  const onSubmit = (data) => {
+    if(data.username !== "admin" || data.password !== "admin123"){
+      setLoginError(true);
+      return;
+    }
 
     dispatch(login({ username: data.username }));
   };
@@ -58,7 +62,7 @@ const Login = () => {
           )}
           {errors.username?.type === "minLength" && (
             <span className="error-alert">
-              El minimo de letras son 2
+              El mínimo de letras son 2
             </span>
           )}
         </div>
@@ -92,12 +96,19 @@ const Login = () => {
           {errors.password?.type === "minLength" && (
             <span className="error-alert">El mínimo de letras son 8</span>
           )}
+          {loginError && (
+            <span className="error-alert">El usuario y/o la contraseña no son válidos</span>
+          )}
         </div>
 
-        <button className="btn btn-primary w-100 mt-2">Inicia sesión</button>
-
+        <div className="form-group mt-3">
+          <button type="submit" className="btn btn-primary btn-block">
+            Ingresar
+          </button>
+        </div>
       </form>
-    </div>
+    </
+div>
   );
 };
 
