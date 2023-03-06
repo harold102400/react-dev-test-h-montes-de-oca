@@ -1,11 +1,10 @@
-import React, { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { useNavigate } from 'react-router-dom';
-import { useDispatch, useSelector } from 'react-redux';
-import { addUser } from '../redux/actions/user.actions';
-import '../styles/AddUser.css';
-import { User } from '../interfaces/User';
-
+import React from "react";
+import { useForm } from "react-hook-form";
+import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { addUser } from "../redux/actions/user.actions";
+import { User } from "../interfaces/User";
+import "../styles/AddUser.css";
 
 const AddUser = () => {
   const { users } = useSelector((state: any) => state.user);
@@ -17,7 +16,7 @@ const AddUser = () => {
     formState: { errors },
     reset,
   } = useForm<User>({
-    criteriaMode: 'all',
+    criteriaMode: "all",
   });
   const isValidInput = (value: string) => {
     return /^\s*$/.test(value) === false;
@@ -40,7 +39,7 @@ const AddUser = () => {
       })
     );
     reset();
-    navigate('/users');
+    navigate("/users");
   };
   return (
     <div className="form-container">
@@ -55,7 +54,7 @@ const AddUser = () => {
                   type="text"
                   placeholder="Ingrese su nombre"
                   className="form-control"
-                  {...register('name', {
+                  {...register("name", {
                     required: true,
                     minLength: 2,
                     validate: {
@@ -65,16 +64,16 @@ const AddUser = () => {
                 />
 
                 <div>
-                  {errors.name?.type === 'required' && (
+                  {errors.name?.type === "required" && (
                     <span className="error-alert">El campo es requerido</span>
                   )}
-                  {errors.name?.type === 'isNotEmpty' && (
+                  {errors.name?.type === "isNotEmpty" && (
                     <span className="error-alert">
                       Este campo no puede estar vacío o contener solo espacios
                       en blanco
                     </span>
                   )}
-                  {errors.name?.type === 'minLength' && (
+                  {errors.name?.type === "minLength" && (
                     <span className="error-alert">
                       El minimo de letras son 2
                     </span>
@@ -89,7 +88,7 @@ const AddUser = () => {
                   type="text"
                   placeholder="Ingrese su primer apellido"
                   className="form-control"
-                  {...register('firstLastname', {
+                  {...register("firstLastname", {
                     required: true,
                     minLength: 2,
                     validate: {
@@ -99,16 +98,16 @@ const AddUser = () => {
                 />
 
                 <div>
-                  {errors.firstLastname?.type === 'required' && (
+                  {errors.firstLastname?.type === "required" && (
                     <span className="error-alert">El campo es requerido</span>
                   )}
-                  {errors.firstLastname?.type === 'isNotEmpty' && (
+                  {errors.firstLastname?.type === "isNotEmpty" && (
                     <span className="error-alert">
                       Este campo no puede estar vacío o contener solo espacios
                       en blanco
                     </span>
                   )}
-                  {errors.firstLastname?.type === 'minLength' && (
+                  {errors.firstLastname?.type === "minLength" && (
                     <span className="error-alert">
                       El minimo de letras son 2
                     </span>
@@ -126,7 +125,7 @@ const AddUser = () => {
                   type="text"
                   placeholder="Ingrese su segundo apellido"
                   className="form-control"
-                  {...register('secondLastname', {
+                  {...register("secondLastname", {
                     required: true,
                     minLength: 2,
                     validate: {
@@ -135,16 +134,16 @@ const AddUser = () => {
                   })}
                 />
                 <div>
-                  {errors.secondLastname?.type === 'required' && (
+                  {errors.secondLastname?.type === "required" && (
                     <span className="error-alert">El campo es requerido</span>
                   )}
-                  {errors.secondLastname?.type === 'isNotEmpty' && (
+                  {errors.secondLastname?.type === "isNotEmpty" && (
                     <span className="error-alert">
                       Este campo no puede estar vacío o contener solo espacios
                       en blanco
                     </span>
                   )}
-                  {errors.secondLastname?.type === 'minLength' && (
+                  {errors.secondLastname?.type === "minLength" && (
                     <span className="error-alert">
                       El minimo de letras son 2
                     </span>
@@ -160,39 +159,39 @@ const AddUser = () => {
                   type="number"
                   placeholder="Ingrese su Cédula de identidad"
                   className="form-control"
-                  {...register('id', {
+                  {...register("id", {
                     required: true,
                     minLength: 11,
                     maxLength: 11,
                     validate: {
                       isUnique: (value: any) =>
                         users.every((user: any) => user.id !== value) ||
-                        'Ya existe un usuario con esa cédula.',
+                        "Ya existe un usuario con esa cédula.",
                       isNotEmpty: (value: any) => isValidInput(value),
                     },
                   })}
                 />
                 {errors.id && (
                   <div>
-                    {errors.id.type === 'required' && (
+                    {errors.id.type === "required" && (
                       <span className="error-alert">El campo es requerido</span>
                     )}
-                    {errors.id.type === 'minLength' && (
+                    {errors.id.type === "minLength" && (
                       <span className="error-alert">
                         El mínimo de números son 11
                       </span>
                     )}
-                    {errors.id.type === 'maxLength' && (
+                    {errors.id.type === "maxLength" && (
                       <span className="error-alert">
                         El máximo de números son 11
                       </span>
                     )}
-                    {errors.id.type === 'isUnique' && (
+                    {errors.id.type === "isUnique" && (
                       <span className="error-alert">
                         {errors.id.message?.toString()}
                       </span>
                     )}
-                    {errors.id?.type === 'isNotEmpty' && (
+                    {errors.id?.type === "isNotEmpty" && (
                       <span className="error-alert">
                         Este campo no puede estar vacío o contener solo espacios
                         en blanco
@@ -207,37 +206,38 @@ const AddUser = () => {
           <div className="row">
             <div className="col-md-6 mb-4">
               <div className="form-outline">
-              <label className="form-label">Edad</label>
-    <input
-      type="number"
-      placeholder="Ingrese su edad"
-      className="form-control"
-      {...register('age', {
-        required: true,
-        min: 18,
-        max: 120,
-        pattern: /^[0-9]+$/,
-      })}
-    />
-    <div>
-      {errors.age?.type === 'required' && (
-        <span className="error-alert">El campo es requerido</span>
-      )}
-      {errors.age?.type === 'min' && (
-        <span className="error-alert">
-          La edad mínima permitida es 18 años
-        </span>
-      )}
-      {errors.age?.type === 'max' && (
-        <span className="error-alert">
-          La edad máxima permitida es 120 años
-        </span>
-      )}
-      {errors.age?.type === 'pattern' && (
-        <span className="error-alert">Solo se permiten números</span>
-      )}
-    </div>
-
+                <label className="form-label">Edad</label>
+                <input
+                  type="number"
+                  placeholder="Ingrese su edad"
+                  className="form-control"
+                  {...register("age", {
+                    required: true,
+                    min: 18,
+                    max: 120,
+                    pattern: /^[0-9]+$/,
+                  })}
+                />
+                <div>
+                  {errors.age?.type === "required" && (
+                    <span className="error-alert">El campo es requerido</span>
+                  )}
+                  {errors.age?.type === "min" && (
+                    <span className="error-alert">
+                      La edad mínima permitida es 18 años
+                    </span>
+                  )}
+                  {errors.age?.type === "max" && (
+                    <span className="error-alert">
+                      La edad máxima permitida es 120 años
+                    </span>
+                  )}
+                  {errors.age?.type === "pattern" && (
+                    <span className="error-alert">
+                      Solo se permiten números
+                    </span>
+                  )}
+                </div>
               </div>
             </div>
 
@@ -246,7 +246,7 @@ const AddUser = () => {
                 <label className="form-label mt-6">Género</label>
                 <select
                   className="form-select"
-                  {...register('gender', { required: true })}
+                  {...register("gender", { required: true })}
                 >
                   <option value="">Seleccione un genero</option>
                   <option value="masculino">Masculino</option>
@@ -265,30 +265,30 @@ const AddUser = () => {
               <div className="form-outline">
                 <label className="form-label">Dirección</label>
                 <input
-                      type="text"
-                      placeholder={`Dirección`}
-                      className="form-control mb-2"
-                      {...register(`address`, {
-                        required: true,
-                        minLength: 15,
-                        validate: {
-                          isNotEmpty: (value: any) => isValidInput(value),
-                        },
-                      })}
-                    />
-                    {errors.address?.type === 'required' && (
-                      <span className="error-alert">El campo es requerido</span>
-                    )}
-                    {errors.address?.type === 'minLength' && (
-                      <span className="error-alert">
-                        El mínimo de caracteres son 15
-                      </span>
-                    )}
-                    {errors.address?.type === 'isNotEmpty' && (
-                      <span className="error-alert">
-                        La dirección no puede estar vacía
-                      </span>
-                    )}
+                  type="text"
+                  placeholder={`Dirección`}
+                  className="form-control mb-2"
+                  {...register(`address`, {
+                    required: true,
+                    minLength: 15,
+                    validate: {
+                      isNotEmpty: (value: any) => isValidInput(value),
+                    },
+                  })}
+                />
+                {errors.address?.type === "required" && (
+                  <span className="error-alert">El campo es requerido</span>
+                )}
+                {errors.address?.type === "minLength" && (
+                  <span className="error-alert">
+                    El mínimo de caracteres son 15
+                  </span>
+                )}
+                {errors.address?.type === "isNotEmpty" && (
+                  <span className="error-alert">
+                    La dirección no puede estar vacía
+                  </span>
+                )}
               </div>
             </div>
 
@@ -299,22 +299,22 @@ const AddUser = () => {
                   type="number"
                   placeholder="Ingrese su Teléfono"
                   className="form-control"
-                  {...register('phone', {
+                  {...register("phone", {
                     required: true,
                     minLength: 10,
                     maxLength: 10,
                   })}
                 />
                 <div>
-                  {errors.phone?.type === 'required' && (
+                  {errors.phone?.type === "required" && (
                     <span className="error-alert">El campo es requerido</span>
                   )}
-                  {errors.phone?.type === 'minLength' && (
+                  {errors.phone?.type === "minLength" && (
                     <span className="error-alert">
                       El mínimo de numeros son 10
                     </span>
                   )}
-                  {errors.phone?.type === 'maxLength' && (
+                  {errors.phone?.type === "maxLength" && (
                     <span className="error-alert">
                       El máximo de numeros son 10
                     </span>
@@ -332,21 +332,21 @@ const AddUser = () => {
                   type="email"
                   placeholder="Ingrese su email electrónico"
                   className="form-control"
-                  {...register('email', {
-                    required: 'El campo es requerido',
+                  {...register("email", {
+                    required: "El campo es requerido",
                     minLength: {
                       value: 5,
                       message:
-                        'El correo electrónico debe tener al menos 5 caracteres',
+                        "El correo electrónico debe tener al menos 5 caracteres",
                     },
                     maxLength: {
                       value: 255,
                       message:
-                        'El correo electrónico debe tener como máximo 255 caracteres',
+                        "El correo electrónico debe tener como máximo 255 caracteres",
                     },
                     pattern: {
                       value: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
-                      message: 'El correo electrónico no es válido',
+                      message: "El correo electrónico no es válido",
                     },
                   })}
                 />
@@ -365,7 +365,7 @@ const AddUser = () => {
                 <label className="form-label mt-6">Estado civil</label>
                 <select
                   className="form-select"
-                  {...register('maritalStatus', { required: true })}
+                  {...register("maritalStatus", { required: true })}
                 >
                   <option value="">Seleccione su estado civil</option>
                   <option value="casado">Casado/a</option>
@@ -384,7 +384,7 @@ const AddUser = () => {
                 <label className="form-label">Tiene hijos?</label>
                 <select
                   className="form-select"
-                  {...register('children', { required: true })}
+                  {...register("children", { required: true })}
                 >
                   <option value="">Seleccione si tienes hijos</option>
                   <option value="si">Si</option>
@@ -402,12 +402,12 @@ const AddUser = () => {
                   type="date"
                   placeholder="Ingrese su fecha de cumpleaños"
                   className="form-control"
-                  {...register('birthday', {
+                  {...register("birthday", {
                     required: true,
                   })}
                 />
                 <div>
-                  {errors.birthday?.type === 'required' && (
+                  {errors.birthday?.type === "required" && (
                     <span className="error-alert">El campo es requerido</span>
                   )}
                 </div>

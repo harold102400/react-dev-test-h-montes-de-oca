@@ -3,8 +3,8 @@ import { useForm, SubmitHandler } from 'react-hook-form';
 import * as FaIcons from 'react-icons/fa';
 import { useDispatch } from 'react-redux';
 import { login } from '../redux/actions/auth.actions';
-import '../styles/LoginForm.css';
 import { UserAuth } from '../interfaces/UserAuth';
+import '../styles/LoginForm.css';
 
 const Login = () => {
   const dispatch = useDispatch();

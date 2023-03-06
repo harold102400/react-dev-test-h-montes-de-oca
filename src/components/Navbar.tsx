@@ -6,7 +6,7 @@ import { IconContext } from 'react-icons';
 import { SidebarData } from './SidebarData';
 import DropdownMenu from './DropdownMenu';
 import '../styles/Navbar.css';
-import '../styles/Dropdown.css';
+
 
 function Navbar({ children }: { children: any }) {
   const [sidebar, setSidebar] = useState(false);
