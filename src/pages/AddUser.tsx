@@ -262,34 +262,33 @@ const AddUser = () => {
 
           <div className="row">
             <div className="col-md-6 mb-4">
-              <div className="form-outline">
-                <label className="form-label">Dirección</label>
-                <input
-                  type="text"
-                  placeholder={`Dirección`}
-                  className="form-control mb-2"
-                  {...register(`address`, {
-                    required: true,
-                    minLength: 15,
-                    validate: {
-                      isNotEmpty: (value: any) => isValidInput(value),
-                    },
-                  })}
-                />
-                {errors.address?.type === "required" && (
-                  <span className="error-alert">El campo es requerido</span>
-                )}
-                {errors.address?.type === "minLength" && (
-                  <span className="error-alert">
-                    El mínimo de caracteres son 15
-                  </span>
-                )}
-                {errors.address?.type === "isNotEmpty" && (
-                  <span className="error-alert">
-                    La dirección no puede estar vacía
-                  </span>
-                )}
-              </div>
+            <div className="form-outline">
+      <label className="form-label">Dirección</label>
+      <textarea
+        placeholder={`Dirección`}
+        className="form-control mb-2"
+        {...register(`address`, {
+          required: true,
+          minLength: 15,
+          validate: {
+            isNotEmpty: (value: any) => isValidInput(value),
+          },
+        })}
+      />
+      {errors.address?.type === 'required' && (
+        <span className="error-alert">El campo es requerido</span>
+      )}
+      {errors.address?.type === 'minLength' && (
+        <span className="error-alert">
+          El mínimo de caracteres son 15
+        </span>
+      )}
+      {errors.address?.type === 'isNotEmpty' && (
+        <span className="error-alert">
+          La dirección no puede estar vacía
+        </span>
+      )}
+    </div>
             </div>
 
             <div className="col-md-6 mb-4">
