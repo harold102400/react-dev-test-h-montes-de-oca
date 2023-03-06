@@ -63,11 +63,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
-}
-
 ul, 
 li{
   list-style: none;
@@ -88,7 +83,7 @@ li{
   border-radius: 50%;
   overflow: hidden;
   cursor: pointer;
-  background-color: #439441;
+  background-color: #E4EFFF;
 }
 
 .dropdown_menu{

@@ -276,7 +276,7 @@ const AddUser = () => {
               ))}
               <button
                 type="button"
-                className="btn btn-success"
+                className="btn btn-primary"
                 onClick={() => setAddresses([...addresses, ""])}
               >
                 Agregar dirección
@@ -397,7 +397,7 @@ const AddUser = () => {
             </div>
           </div>
 
-          <button className="btn btn-success mt-2">Agregar Usuario</button>
+          <button className="btn btn-primary mt-2">Agregar Usuario</button>
         </form>
       </div>
     </div>

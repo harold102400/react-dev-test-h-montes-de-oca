@@ -94,7 +94,7 @@ const Login = () => {
           )}
         </div>
 
-        <button className="btn btn-success w-100 mt-2">Inicia sesión</button>
+        <button className="btn btn-primary w-100 mt-2">Inicia sesión</button>
 
       </form>
     </div>

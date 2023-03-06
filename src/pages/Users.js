@@ -10,8 +10,8 @@ const Users = () => {
   return (
     <>
       <h1 className="mb-2">Usuarios</h1>
-      <div>
-        <table className="table table-striped table-bordered">
+      <div >
+        <table className="table table-striped table-bordered" style={{boxShadow: 'rgba(14, 30, 37, 0.12) 0px 2px 4px 0px, rgba(14, 30, 37, 0.32) 0px 2px 16px 0px'}}>
           <thead>
             <tr>
               <th>ID</th>
@@ -39,7 +39,7 @@ const Users = () => {
           <ul className="pagination">
             <li className="page-item">
               <Link
-                className="page-link p-2 mb-2 bg-success text-light"
+                className="page-link p-2 mb-2 bg-primary text-light"
                 to={`/users?page=${isFirtPage ? 0 : page - 1}`}
               >
                 Previa
@@ -47,7 +47,7 @@ const Users = () => {
             </li>
             <li className="page-item">
               <Link
-                className="page-link p-2 mb-2 bg-success text-light"
+                className="page-link p-2 mb-2 bg-primary text-light"
                 to={`/users?page=${isLastPage ? page : page + 1}`}
               >
                 Siguiente

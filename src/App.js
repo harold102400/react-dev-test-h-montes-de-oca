@@ -12,6 +12,7 @@ import Users from "./pages/Users";
 import Navbar from "./components/Navbar";
 import Dashboard from "./pages/Dashboard";
 import { useSelector } from "react-redux";
+import "./styles/index.css";
 
 function App() {
   const { logged } = useSelector((state) => state.auth);
